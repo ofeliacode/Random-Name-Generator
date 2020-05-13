@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Generate-name</title>
+</head>
+<body>
+    <section>
+        <div class="wrapper">
+            <h1>Генератор названий</h1>
+            <p>Не знаете как назвать фирму, магазин или компанию?
+                наш сервис поможет вам!</p>
+                <div class="text-block">
+                       <label for="">Начальный текст: <input class="firsttext" type="text"></label> 
+                </div>
+                <button>Сгенерировать</button>
+                 <ul></ul>
+        </div>
+    </section>
+    <script>
+        let name = ['атом', 'ру', 'сельмаш', 'нефть', 'флот', 'строй', 'прес', 'газ', 'свет', 'банк'];
+        let word = ''
+        let btn = document.querySelector('button');
+        let ul = document.querySelector('ul');
+        let first = document.querySelector('.firsttext');
+        
+        const getRandomNumber = (max) => Math.floor(Math.random() * max);
+        
+        const getRandomName = () => 
+          `${name[getRandomNumber(name.length)]}`;
+
+        btn.addEventListener('click', function(){
+             let str = first.value + getRandomName();
+            let li = document.createElement('li');
+            li.innerHTML += str;
+            ul.appendChild(li)  
+        })
+    </script>
+</body>
+</html>
